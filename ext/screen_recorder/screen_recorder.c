@@ -17,6 +17,9 @@ rb_recorder_finalizer(id recorder)
 #endif
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
+
 static
 VALUE
 rb_objc_wrap(id obj)
@@ -222,3 +225,5 @@ Init_screen_recorder()
 
   rb_define_singleton_method(rb_cRecorder, "record", rb_recorder_record, -1);
 }
+
+#pragma clang diagnostic pop
