@@ -181,7 +181,7 @@ static
 VALUE
 rb_recorder_record(int argc, VALUE* argv, VALUE self)
 {
-  VALUE recorder = rb_funcall(rb_cRecorder, sel_new, 0);
+  VALUE recorder = rb_funcall2(rb_cRecorder, sel_new, 0, NULL);
   rb_recorder_start(argc, argv, recorder);
   return rb_ensure(rb_recorder_yielder, recorder, rb_recorder_stop, recorder);
 }
